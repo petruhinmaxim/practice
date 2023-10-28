@@ -85,7 +85,7 @@ console.log(userVas2)
 //symbols - special type/ unique identificator. Have discription
 
 let userId = Symbol("userId")
-// console.log(id) ошибка
+// console.log(userId) ошибка
 console.log(userId.description)
 
 let userWithSymbol  = {
@@ -119,10 +119,12 @@ let userComp = {
     name: 'vas',
     age: 24,
     [Symbol.toPrimitive](hint) {
-        console.log(hint)
         return hint == "string"? `name = ${this.name}` : `${this.age}`
     }
 }
+
 console.log(userComp)
-console.log("test"+userComp)
+console.log("___")
+console.log("test" + userComp)
 console.log(+userComp)
+console.log(String(userComp))

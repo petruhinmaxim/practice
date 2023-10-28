@@ -1,0 +1,12 @@
+{
+  "name": "type-script",
+  "version": "1.0.0",
+  "description": "",
+  "main": "function.js",
+  "scripts": {
+    "build": "tsc --build",
+    "clean": "tsc --build --clean"
+  },
+  "author": "",
+  "license": "ISC"
+}
