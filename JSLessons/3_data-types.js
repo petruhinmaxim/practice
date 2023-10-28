@@ -142,7 +142,7 @@ function compareNumeric(a, b) {
     current: this.start,
     last: this.end,
     next() {
-        if(this.current <= this.last) return {done:false, value: this.current++}
+        if(this.current <= this.last) return {done:false, value: {name: this.current++, age: 13}}
         else return {done:true}
     }
 }
@@ -151,4 +151,202 @@ function compareNumeric(a, b) {
   for(let item of psevdoMass) {
     console.log(item)
   }
+
+
+  //map and set
+//   Методы и свойства:
+// new Map() – создаёт коллекцию.
+// map.set(key, value) – записывает по ключу key значение value.
+// map.get(key) – возвращает значение по ключу или undefined, если ключ key отсутствует.
+// map.has(key) – возвращает true, если ключ key присутствует в коллекции, иначе false.
+// map.delete(key) – удаляет элемент (пару «ключ/значение») по ключу key.
+// map.clear() – очищает коллекцию от всех элементов.
+// map.size – возвращает текущее количество элементов.
+
+let john ={name: "john"}
+let pet ={name: "pet"}
+let nameMap = new Map().set(john, {age:21}).set(pet, {age:12})
+nameMap.forEach((key, value) => {
+    console.log(value)
+    console.log(key)
+})
+
+const nameIter = nameMap.entries() //используется в цикле for of
+
+let objForMap = {
+    name: "pet",
+    age: 34,
+    sity: "NY"
+}
+
+let mapFromObj = new Map(Object.entries(objForMap)) //enties возвращает пары ключ значение в виде массива, а new Map работает с массивами
+console.log(mapFromObj)
+
+let reversObj = Object.fromEntries(mapFromObj.entries()) //entries не обязателен
+console.log(reversObj)
+
+// new Set(iterable) – создаёт Set, и если в качестве аргумента был предоставлен итерируемый объект (обычно это массив), то копирует его значения в новый Set.
+// set.add(value) – добавляет значение (если оно уже есть, то ничего не делает), возвращает тот же объект set.
+// set.delete(value) – удаляет значение, возвращает true, если value было в множестве на момент вызова, иначе false.
+// set.has(value) – возвращает true, если значение присутствует в множестве, иначе false.
+// set.clear() – удаляет все имеющиеся значения.
+// set.size – возвращает количество элементов в множестве.
+// обратно совместим с map. Есть методы keys() values() entiries(), принимающие 3 аргумента (key и value дублируются)
+
+
+let weekMap = new WeakMap
+let objForKey = {name: "Pet"}
+weekMap.set(objForKey, {age:24})
+console.log(weekMap.has(objForKey))
+objForKey = null
+console.log(weekMap.has(objForKey))
+// ключи только объекты. Если удаяется ссылка на объект, то он улаляется из weakMap
+// есть только методы: set has get delete
+// не являете перебираемым
+
+
+let prices = {
+    apple: 23,
+    orange: 13,
+    pineApple: 22
+}
+
+for (let key in prices) {
+    console.log(key)
+}
+
+for (let [key, value] of Object.entries(prices)) {
+    console.log(key)
+    console.log(`_${value}`)
+}
+
+let convObj = Object.fromEntries(
+    Object.entries(prices).map(([key, value]) => [key, value * 2] )
+    )
+console.log(convObj)
+
+
+// присваивание массива
+const userForSplit = {
+    name: "pet"
+};
+
+[userForSplit.age, userForSplit.address] = "24, NY".split(" ")
+console.log(userForSplit)
+
+let guest = "pet";
+let admon = "vas";
+
+[guest, admon] = [admon, guest]
+console.log(admon)
+
+let [name1, name2, ...titles] = ["Julius", "Caesar", "Consul", "of the Roman Republic"]; //остаточные параметры
+console.log(titles)
+
+// присваивание объекта
+let options = {
+    up: "upKey",
+    down: "downKey"
+}
+let {down:d, up} = options
+console.log(up)
+console.log(d)
+
+let options2 = {
+    title: "Menu"
+  };
+  
+  let {width: w = 100, height: h = 200, title} = options2;
+  console.log(`${w} ${h} ${title}`)
+  
+  let options3 = {
+    title: "My menu",
+    items: ["Item1", "Item2"]
+  };
+  
+  function showMenu({
+    title = "Untitled",
+    width: w = 100,  // width присваиваем в w
+    height: h = 200, // height присваиваем в h
+    items: [item1, item2] // первый элемент items присваивается в item1, второй в item2
+  }) {
+    console.log( `${title} ${w} ${h}` ); // My Menu 100 200
+    console.log( item1 ); // Item1
+    console.log( item2 ); // Item2
+  }
+  
+  showMenu(options3);
+
+//Date
+let date = new Date() //new Date(year, month, date, hours, minutes, seconds, ms)
+console.log(date)
+console.log(date.getTime()) //timeStemp 
+console.log(date.getTimezoneOffset()) //in minutes
+
+// по аналогии есть геттеры
+// setFullYear(year, [month], [date])
+// setMonth(month, [date])
+// setDate(date)
+// setHours(hour, [min], [sec], [ms])
+// setMinutes(min, [sec], [ms])
+// setSeconds(sec, [ms])
+// setMilliseconds(ms)
+// setTime(milliseconds) (устанавливает дату в виде целого количества миллисекунд, прошедших с 01.01.1970 UTC)
+
+let dateForCorrect = new Date(2016, 1, 28);
+dateForCorrect.setDate(date.getDate() + 2);
+
+console.log( dateForCorrect ); // 1 Mar 2016
+
+const dateNow = Date.now()
+console.log(dateNow)
+
+let dateParse = new Date( Date.parse('2012-01-26T13:51:50.417-07:00') ); // формат 2012-01-26T13:51:50.417-07:00'
+
+console.log(dateParse);
+
+//Json
+
+let userForJson = {
+    [Symbol("Id")]: 15,
+    satHi() {
+        console.log("Hellow")
+    },
+    age: undefined,
+    name: "Pet"
+}
+console.log(userForJson)
+
+const userJson = JSON.stringify(userForJson)
+console.log(userJson)
+
+let room = {
+    number: 42,
+    toJSON() {return this.number +1}
+}
+
+let meeting = {
+    date: "tooday",
+    room: room,
+    time: 12
+}
+
+room.plase = meeting
+// JSON.stringify(meeting) error crossLink
+
+console.log(JSON.stringify(meeting, ["date", "time"]))
+
+console.log(JSON.stringify(meeting, function replacer(key, value) {
+    return (key == "plase")? undefined : value;
+}))
+
+let str = '{"title":"Conference","date":"2017-11-30T12:00:00.000Z"}';
+
+let meetup = JSON.parse(str, function(key, value) {
+  if (key == 'date') return new Date(value);
+  return value;
+});
+
+console.log( meetup.date.getDate() );
+
 
