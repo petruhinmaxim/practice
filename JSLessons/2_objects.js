@@ -1,4 +1,4 @@
-let userConstr = new Object()
+мlet userConstr = new Object()
 userConstr.name = "Petia"
 userConstr.age = 42
 let userLiteral = {

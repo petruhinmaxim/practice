@@ -17,14 +17,14 @@ console.log(parseInt("123.3px"))
 console.log(parseFloat("123.3px"))
 
 
-console.log(Math.pow(2,4))
+console.log(Math.pow(2, 4))
 
 
 console.log(`Список гостей:
 * гость 1
 * гость 2
 гость 3 ` +
-`гость 4`)
+    `гость 4`)
 
 
 let stringForIndexOf = "Hellow id. Where id id iid id"
@@ -59,7 +59,7 @@ console.log(fruit)
 
 fruitAr.length = 0;
 fruitAr.length = 3;
-console.log(fruitAr[2]) 
+console.log(fruitAr[2])
 
 //Arrays
 const userNames = ["Pet", "San", "Oleg"]
@@ -70,11 +70,11 @@ console.log(userNames.pop())
 userNames.unshift("Jeck")
 console.log(userNames.shift())
 
-userNames.splice(0,2, "Sting")
+userNames.splice(0, 2, "Sting")
 console.log(userNames)
 
 const newUserNames = userNames.concat(["kol", "vas"])
-newUserNames.forEach( (item, index, array) => {
+newUserNames.forEach((item, index, array) => {
     console.log(`item = ${item} index = ${index} array = ${array}`)
 }
 )
@@ -84,9 +84,9 @@ newUserNames.includes("pet") // true\false
 
 
 const users = [
-    {name :"pet", age: 45},
-    {name :"vas", age: 22},
-    {name :"jon", age: 32},
+    { name: "pet", age: 45 },
+    { name: "vas", age: 22 },
+    { name: "jon", age: 32 },
 ]
 
 const userPet = users.find((item, index, array) => {
@@ -100,16 +100,16 @@ const usersAge = users.filter(item => item.age > 23)
 console.log(usersAge.length)
 
 users.map(item => item.age += 10)
-users.forEach (item => console.log(item))
+users.forEach(item => console.log(item))
 
 users.map((item, index, array) => {
     item.age += 10
-    if(index ==1)
-    array.pop()
+    if (index == 1)
+        array.pop()
 }
 )
 console.log("___")
-users.forEach (item => console.log(item))
+users.forEach(item => console.log(item))
 
 let arr = [1, 4, 2, 43, 12]
 console.log(arr.sort())
@@ -119,41 +119,41 @@ function compareNumeric(a, b) {
     if (a > b) return 1;
     if (a == b) return 0;
     if (a < b) return -1;
-  }
+}
 
-  const strToArr = "Pet, Vas, Kol"
-  const strArr = strToArr.split(",")
-  console.log(strArr)
-  const newStr = strArr.join("!!")
-  console.log(newStr)
+const strToArr = "Pet, Vas, Kol"
+const strArr = strToArr.split(",")
+console.log(strArr)
+const newStr = strArr.join("!!")
+console.log(newStr)
 
 
-  console.log(arr.reduce((sum, item, index, array) => {
+console.log(arr.reduce((sum, item, index, array) => {
     return sum + item
-  }, 10))
+}, 10))
 
-  const psevdoMass = {
+const psevdoMass = {
     start: 2,
     end: 5
-  }
+}
 
-  psevdoMass[Symbol.iterator] = function() {
+psevdoMass[Symbol.iterator] = function () {
     return {
-    current: this.start,
-    last: this.end,
-    next() {
-        if(this.current <= this.last) return {done:false, value: {name: this.current++, age: 13}}
-        else return {done:true}
+        current: this.start,
+        last: this.end,
+        next() {
+            if (this.current <= this.last) return { done: false, value: { name: this.current++, age: 13 } }
+            else return { done: true }
+        }
     }
 }
-  }
 
-  for(let item of psevdoMass) {
+for (let item of psevdoMass) {
     console.log(item)
-  }
+}
 
 
-  //map and set
+//map and set
 //   Методы и свойства:
 // new Map() – создаёт коллекцию.
 // map.set(key, value) – записывает по ключу key значение value.
@@ -163,9 +163,9 @@ function compareNumeric(a, b) {
 // map.clear() – очищает коллекцию от всех элементов.
 // map.size – возвращает текущее количество элементов.
 
-let john ={name: "john"}
-let pet ={name: "pet"}
-let nameMap = new Map().set(john, {age:21}).set(pet, {age:12})
+let john = { name: "john" }
+let pet = { name: "pet" }
+let nameMap = new Map().set(john, { age: 21 }).set(pet, { age: 12 })
 nameMap.forEach((key, value) => {
     console.log(value)
     console.log(key)
@@ -195,8 +195,8 @@ console.log(reversObj)
 
 
 let weekMap = new WeakMap
-let objForKey = {name: "Pet"}
-weekMap.set(objForKey, {age:24})
+let objForKey = { name: "Pet" }
+weekMap.set(objForKey, { age: 24 })
 console.log(weekMap.has(objForKey))
 objForKey = null
 console.log(weekMap.has(objForKey))
@@ -221,8 +221,8 @@ for (let [key, value] of Object.entries(prices)) {
 }
 
 let convObj = Object.fromEntries(
-    Object.entries(prices).map(([key, value]) => [key, value * 2] )
-    )
+    Object.entries(prices).map(([key, value]) => [key, value * 2])
+)
 console.log(convObj)
 
 
@@ -248,34 +248,34 @@ let options = {
     up: "upKey",
     down: "downKey"
 }
-let {down:d, up} = options
+let { down: d, up } = options
 console.log(up)
 console.log(d)
 
 let options2 = {
     title: "Menu"
-  };
-  
-  let {width: w = 100, height: h = 200, title} = options2;
-  console.log(`${w} ${h} ${title}`)
-  
-  let options3 = {
+};
+
+let { width: w = 100, height: h = 200, title } = options2;
+console.log(`${w} ${h} ${title}`)
+
+let options3 = {
     title: "My menu",
     items: ["Item1", "Item2"]
-  };
-  
-  function showMenu({
+};
+
+function showMenu({
     title = "Untitled",
     width: w = 100,  // width присваиваем в w
     height: h = 200, // height присваиваем в h
     items: [item1, item2] // первый элемент items присваивается в item1, второй в item2
-  }) {
-    console.log( `${title} ${w} ${h}` ); // My Menu 100 200
-    console.log( item1 ); // Item1
-    console.log( item2 ); // Item2
-  }
-  
-  showMenu(options3);
+}) {
+    console.log(`${title} ${w} ${h}`); // My Menu 100 200
+    console.log(item1); // Item1
+    console.log(item2); // Item2
+}
+
+showMenu(options3);
 
 //Date
 let date = new Date() //new Date(year, month, date, hours, minutes, seconds, ms)
@@ -296,12 +296,12 @@ console.log(date.getTimezoneOffset()) //in minutes
 let dateForCorrect = new Date(2016, 1, 28);
 dateForCorrect.setDate(date.getDate() + 2);
 
-console.log( dateForCorrect ); // 1 Mar 2016
+console.log(dateForCorrect); // 1 Mar 2016
 
 const dateNow = Date.now()
 console.log(dateNow)
 
-let dateParse = new Date( Date.parse('2012-01-26T13:51:50.417-07:00') ); // формат 2012-01-26T13:51:50.417-07:00'
+let dateParse = new Date(Date.parse('2012-01-26T13:51:50.417-07:00')); // формат 2012-01-26T13:51:50.417-07:00'
 
 console.log(dateParse);
 
@@ -322,7 +322,7 @@ console.log(userJson)
 
 let room = {
     number: 42,
-    toJSON() {return this.number +1}
+    toJSON() { return this.number + 1 }
 }
 
 let meeting = {
@@ -337,16 +337,128 @@ room.plase = meeting
 console.log(JSON.stringify(meeting, ["date", "time"]))
 
 console.log(JSON.stringify(meeting, function replacer(key, value) {
-    return (key == "plase")? undefined : value;
+    return (key == "plase") ? undefined : value;
 }))
 
 let str = '{"title":"Conference","date":"2017-11-30T12:00:00.000Z"}';
 
-let meetup = JSON.parse(str, function(key, value) {
-  if (key == 'date') return new Date(value);
-  return value;
+let meetup = JSON.parse(str, function (key, value) {
+    if (key == 'date') return new Date(value);
+    return value;
 });
 
-console.log( meetup.date.getDate() );
+console.log(meetup.date.getDate());
 
 
+
+function camelize(str) {
+    return str.split("-").map((item, index) => {
+        return index == 0 ? item : item[0].toUpperCase() + item.slice(1)
+    }).join("")
+}
+
+console.log(camelize("list-style-image"))
+console.log(camelize("list-style-image") == 'listStyleImage')
+console.log(camelize("background-color") == 'backgroundColor')
+console.log(camelize("-webkit-transition") == 'WebkitTransition')
+
+
+let arrEz = [5, 3, 8, 1];
+
+function filterRange(arr, minDip, maxDip) {
+    return arr.filter((item) => {
+        return item >= minDip && item <= maxDip
+    })
+}
+
+console.log(filterRange(arrEz, 1, 4))
+
+
+let vasya = { name: "Вася", age: 25 };
+let petya = { name: "Петя", age: 30 };
+let masha = { name: "Маша", age: 28 };
+
+let arrForSort = [vasya, petya, masha];
+
+function sortByAge(arr) {
+    arr.sort((a, b) => {
+        return a.age - b.age
+    })
+}
+
+sortByAge(arrForSort);
+
+arrForSort.forEach(item => console.log(item))
+
+let arrForShaffle = [1, 2, 3];
+
+function shuffle(arr) {
+    for (let i = arr.length - 1; i > 0; i--) {
+        const shaflIndex = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[shaflIndex]] = [arr[shaflIndex], arr[i]];
+    }
+}
+
+shuffle(arrForShaffle)
+
+arrForShaffle.forEach(item => console.log(item))
+
+
+
+let usersForSort = [
+    { id: 'john', name: "John Smith", age: 20 },
+    { id: 'ann', name: "Ann Smith", age: 24 },
+    { id: 'pete', name: "Pete Peterson", age: 31 },
+];
+
+function groupById(arr) {
+    const res = new Object()
+    arr.forEach(item => res[item.id] = item)
+    return res
+}
+
+let usersById = groupById(usersForSort);
+
+for (let user in usersById) {
+    console.log(user)
+    console.log(usersById[user])
+}
+
+console.log("😂".length)
+console.log("😂"[1])
+console.log("😂"[0])
+console.log("😂".charAt(1))
+
+for (let char of "😂") {
+    console.log(char)
+}
+
+function unique1(arr) {
+    const res = new Set(arr)
+    const reaMass = []
+    res.forEach(item => reaMass.push(item))
+    return reaMass
+}
+
+function unique(arr) {
+    return Array.from(new Set(arr))
+}
+
+let values = ["Hare", "Krishna", "Hare", "Krishna",
+    "Krishna", "Krishna", "Hare", "Hare", ":-O"
+];
+
+console.log(unique(values))
+
+
+let arrAnagram = ["nap", "teachers", "cheaters", "PAN", "ear", "era", "hectares"];
+
+function aclean(arr) {
+    let filterRes = new Map()
+    for (let item of arr) {
+        filterRes.set(item.toLowerCase().split("").sort().join(""), item);
+    }
+    return Array.from(filterRes.values())
+}
+
+console.log(aclean(arrAnagram))
