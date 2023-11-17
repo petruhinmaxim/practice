@@ -178,6 +178,8 @@ const tickTimerId = setTimeout(() => {
 console.log("tack")
 console.log("tack")
 console.log("tack")
-clearInterval(tickTimerId)
+   clearInterval(tickTimerId)
 
 const a = 1
+
+

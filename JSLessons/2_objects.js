@@ -1,4 +1,4 @@
-мlet userConstr = new Object()
+let userConstr = new Object()
 userConstr.name = "Petia"
 userConstr.age = 42
 let userLiteral = {
@@ -29,7 +29,7 @@ for (let key in userConstr) {
     console.log(key)
 }
 
-console.log(typeof userConstr.name ==  "bollean")
+console.log(typeof userConstr.name == "bollean")
 
 // object copyring
 let userLiteralCopy = {}
@@ -42,14 +42,14 @@ let userLiteralCopyMeth = Object.assign({}, userLiteralCopy)
 console.log(userLiteralCopyMeth)
 // if the object includes another object, then the links will be copied
 
-function recursionObjCopy (obj) {
+function recursionObjCopy(obj) {
     let objCopy = {}
-    const recours = (obj, objCopy)=> {
+    const recours = (obj, objCopy) => {
         for (let key in obj) {
-                objCopy[key] = obj[key]
-                if(typeof obj[key]  == "object") {
-                    recours (obj[key], objCopy[key])
-                }
+            objCopy[key] = obj[key]
+            if (typeof obj[key] == "object") {
+                recours(obj[key], objCopy[key])
+            }
         }
     }
     recours(obj, objCopy)
@@ -63,9 +63,9 @@ console.log(recourseCopy.sister)
 
 
 
-function User (name) {
+function User(name) {
     this.name = name
-    age:36
+    age: 36
     console.log(new.target)
     return 32
 }
@@ -73,7 +73,7 @@ function User (name) {
 const userVas = new User("vas")
 const userVas2 = User("vas2")
 const userKir = User("kir")
-const userPet = new function() {
+const userPet = new function () {
     this.name = "pet"
 }
 
@@ -88,10 +88,10 @@ let userId = Symbol("userId")
 // console.log(userId) ошибка
 console.log(userId.description)
 
-let userWithSymbol  = {
+let userWithSymbol = {
     name: "petia",
     age: 35,
-    userId:12
+    userId: 12
 }
 console.log(userWithSymbol)
 
@@ -119,7 +119,7 @@ let userComp = {
     name: 'vas',
     age: 24,
     [Symbol.toPrimitive](hint) {
-        return hint == "string"? `name = ${this.name}` : `${this.age}`
+        return hint == "string" ? `name = ${this.name}` : `${this.age}`
     }
 }
 
